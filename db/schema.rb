@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170603095259) do
+ActiveRecord::Schema.define(version: 20170603143526) do
 
   create_table "conditions", force: :cascade do |t|
     t.integer  "term",         default: 0
@@ -28,17 +28,16 @@ ActiveRecord::Schema.define(version: 20170603095259) do
   end
 
   create_table "investments", force: :cascade do |t|
-    t.integer  "term",          default: 0
-    t.integer  "period",        default: 0
-    t.integer  "rate",          default: 0
-    t.integer  "overdue_rate",  default: 0
-    t.float    "sum",           default: 0.0
-    t.float    "interest_paid", default: 0.0
-    t.float    "loan_paid",     default: 0.0
-    t.integer  "entity_id",                   null: false
-    t.integer  "condition_id",                null: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.integer  "term",         default: 0
+    t.integer  "period",       default: 0
+    t.integer  "rate",         default: 0
+    t.integer  "overdue_rate", default: 0
+    t.float    "sum",          default: 0.0
+    t.float    "loan_paid",    default: 0.0
+    t.integer  "entity_id",                  null: false
+    t.integer  "condition_id",               null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.index ["condition_id"], name: "index_investments_on_condition_id"
     t.index ["entity_id"], name: "index_investments_on_entity_id"
   end

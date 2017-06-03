@@ -14,5 +14,7 @@
 #
 
 class Period < ApplicationRecord
+  STATUSES = %w(in_time delay premature).freeze
+
   belongs_to :investment, inverse_of: :periods
 end

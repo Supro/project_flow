@@ -44,6 +44,8 @@ end
 
 gem 'dry-initializer'
 gem 'dry-validation'
+gem 'dry-struct'
+
 gem 'annotate'
 
 gem 'rubocop', require: false

@@ -13,4 +13,12 @@
 
 class Condition < ApplicationRecord
   has_many :investments, inverse_of: :condition
+
+  def self.default
+    first
+  end
+
+  def decorate
+    ConditionDecorator.new(self)
+  end
 end
