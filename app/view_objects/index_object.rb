@@ -15,7 +15,7 @@ class IndexObject
   private
 
   def calculate_realistic_profitability
-    (loans / interests / term * 12 * 100).to_f.round(2)
+    (loans / interests / term * 12 * 100).to_f
   end
 
   def interests

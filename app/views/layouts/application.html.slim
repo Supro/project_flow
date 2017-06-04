@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>ProjectFlow</title>
-    <%= csrf_meta_tags %>
+doctype html
+html
+  head
+    title ProjectFlow
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
-</html>
+  body
+    = yield
