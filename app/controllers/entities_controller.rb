@@ -1,12 +1,12 @@
 class EntitiesController < ApplicationController
   def new
-    @form = EntityFormBuilder.new
+    @form = EntityFormBuilder.new.build
   end
 
   def create
     service = EntityService.new(params)
     if service.save
-      redirect_to index_path
+      redirect_to root_path
     else
       @form = service.form
       render :new

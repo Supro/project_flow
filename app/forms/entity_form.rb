@@ -12,4 +12,10 @@ class EntityForm < Dry::Struct
   def statuses_list
     Period::STATUSES
   end
+
+  def statuses_normalized
+    statuses_list.map do |status|
+      [I18n.t("statuses.#{status}"), status]
+    end
+  end
 end

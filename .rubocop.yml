@@ -5,6 +5,7 @@ AllCops:
     - config/**/*
     - spec/spec_helper.rb
     - spec/rails_helper.rb
+    - spec/feature_helper.rb
     - lib/tasks/auto_annotate_models
     - Gemfile
     - Rakefile

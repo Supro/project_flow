@@ -20,4 +20,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  statuses:
+    in_time: Своевременно
+    delay: Просрочка
+    premature: Досрочное погашение
+
+  fields:
+    name: Название
+    sum: Сумма
+    statuses: Статусы платежей

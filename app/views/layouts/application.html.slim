@@ -7,4 +7,6 @@ html
     = javascript_include_tag 'application'
 
   body
-    = yield
+    = render 'shared/navigation'
+    .container
+      = yield

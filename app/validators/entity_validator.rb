@@ -25,7 +25,7 @@ class EntityValidator
       end
 
       required(:name).filled
-      required(:sum).value(:int?)
+      required(:sum).filled
       required(:statuses).value(one_of?: Period::STATUSES, size?: periods_count)
     end.with(periods_count: periods_count).call(params)
   end

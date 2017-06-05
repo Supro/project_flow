@@ -1,0 +1,22 @@
+= form_tag("/entities", method: "post", class: "form-horizontal")
+  - if @form.errors.present?
+    - @form.errors.each do |field, msg|
+        p
+        = t "fields.#{field}"
+        | :&nbsp;
+        = msg.join(', ')
+
+  div.form-group
+    label Название
+    = text_field(:entity, :name, value: @form.name, class: 'form-control')
+  div.form-group
+    label Сумма
+    = number_field(:entity, :sum, value: @form.sum, class: 'form-control')
+
+  - @form.statuses.each_with_index do |status, index|
+    div.form-group
+      label= "#{index + 1} месяц"
+      = select_tag('entity[statuses][]', options_for_select(@form.statuses_normalized), class: 'form-control')
+
+  div.form-group
+    = submit_tag('Добавить', class: 'btn btn-success')

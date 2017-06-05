@@ -8,10 +8,10 @@
 
 condition = FactoryGirl.create :condition
 
-params_list = [ 
-  { sum: 1_000_000, statuses: 6.times.map{ 'in_time' } },
-  { sum: 1_000_000, statuses: 4.times.map{ 'in_time' } + 2.times.map{ 'premature' } },
-  { sum: 1_000_000, statuses: 2.times.map{ 'in_time' } + 4.times.map{ 'delay' } }
+params_list = [
+  { sum: 1_000_000, statuses: Array.new(6) { 'in_time' } },
+  { sum: 1_000_000, statuses: Array.new(4) { 'in_time' } + Array.new(2) { 'premature' } },
+  { sum: 1_000_000, statuses: Array.new(2) { 'in_time' } + Array.new(4) { 'delay' } }
 ]
 
 params_list.each do |params|

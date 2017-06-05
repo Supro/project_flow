@@ -1,11 +1,9 @@
-require 'rails_helper'
+require 'feature_helper'
 
-RSpec.describe IndexObject do
-  let(:condition) { create :condition }
-
-  let(:view) { IndexObject.new }
-
+RSpec.feature 'User visits root page' do
   before do
+    condition = create :condition
+
     params_list = [
       { sum: 1_000_000, statuses: Array.new(6) { 'in_time' } },
       { sum: 1_000_000, statuses: Array.new(4) { 'in_time' } + Array.new(2) { 'premature' } },
@@ -19,11 +17,14 @@ RSpec.describe IndexObject do
     end
   end
 
-  it 'realisitic_profitability' do
-    expect(view.realisitic_profitability.round(2)).to eq 31.11
-  end
+  scenario 'Plays with calculator', js: true do
+    visit root_path
 
-  it 'optimistic_profitability' do
-    expect(view.optimistic_profitability).to eq 30.00
+    within 'form.form-inline' do
+      fill_in 'sum', with: 1_000_000
+    end
+
+    expect(page).to have_content('311 111')
+    expect(page).to have_content('300 000')
   end
 end
