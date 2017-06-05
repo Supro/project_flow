@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170603143526) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "conditions", force: :cascade do |t|
     t.integer  "term",         default: 0
     t.integer  "period",       default: 0
@@ -38,8 +41,8 @@ ActiveRecord::Schema.define(version: 20170603143526) do
     t.integer  "condition_id",               null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.index ["condition_id"], name: "index_investments_on_condition_id"
-    t.index ["entity_id"], name: "index_investments_on_entity_id"
+    t.index ["condition_id"], name: "index_investments_on_condition_id", using: :btree
+    t.index ["entity_id"], name: "index_investments_on_entity_id", using: :btree
   end
 
   create_table "periods", force: :cascade do |t|
@@ -47,7 +50,7 @@ ActiveRecord::Schema.define(version: 20170603143526) do
     t.integer  "investment_id", null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["investment_id"], name: "index_periods_on_investment_id"
+    t.index ["investment_id"], name: "index_periods_on_investment_id", using: :btree
   end
 
 end
